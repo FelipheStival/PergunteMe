@@ -1,0 +1,145 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.content-login
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+.content-center-login
+{
+    width: 30%;
+    height: 68%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 8px #EEEED1;
+    border: 1px solid #EEEED1;
+}
+.content-header-login
+{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+.center-image
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.cotent-input-login
+{
+    width: 100%;
+    height: 55%;
+}
+
+.cotent-input-login form
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 25px;
+}
+
+.input-login
+{
+    width: 75%;
+    height: 9%;
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color: #F5F5F5;
+    box-shadow: 10px 10px 8px #EEEED1;
+    padding: 3%;
+}
+.input-login input
+{
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+    border: none;
+    font-size: 3vh;
+    text-align: center;
+}
+
+input:focus
+{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.cotent-input-login button
+{
+    width: 30%;
+    height: 25%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.content-login-register
+{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.content-login-register button
+{
+    width: 40%;
+    height: 60%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,83,1) 35%, rgba(108,31,102,1) 100%, rgba(0,212,255,1) 100%);
+    border: none;
+    border-radius: 25px;
+    font-size: 3vh;
+    color: white;
+}
+.error-login
+{
+    width: 80%;
+    height: 15%;
+    text-align: center;
+    font-size: 2.5vh;
+    color: #7A378B;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+    .content-center-login
+    {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.content-center-register
+{
+    width: 30%;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 8px #EEEED1;
+    border: 1px solid #EEEED1;
+}
+.container-img-registrar-logar
+{
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+.center-image img 
+{
+    width: 80%;
+    height: 100%;
+}
