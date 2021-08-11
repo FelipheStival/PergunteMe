@@ -5,9 +5,7 @@
     <div class = "content-center-register">
         <div class = "content-header-login">
             <div class = "center-image">
-                <div class = "container-img-registrar-logar">
-                    <img src="{{ asset('img/logo.png') }}" alt="" >
-                </div>
+                <img src="{{ asset('img/logo.png') }}" alt="" >
             </div>   
         </div>
         <div class = "cotent-input-login">
