@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,33 +18,31 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
 
 </head>
-
 <body>
-    <div class="side-bar">
-        <div class="center-side-bar">
-            <div class="center-side-bar-leaft">
-                <img src="{{ asset('img/question.png') }}" alt="" id="logo-side-bar">
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Pesquisar">
-                    <button class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
+    <div class = "home-sider-bar">
+        <div class = "center-home-sider-bar">
+            <div class = "container-search-logo">
+                <img src= "{{ asset('img/question.png') }}">
+                <div id = "container-side-bar">
+
                 </div>
             </div>
-            <div class="center-side-bar-leaft">
-                <button type="button" class="btn-pergunta">criar pergunta</button>
-                <div class="icon-menu-side-bar">
-                    <i class="fas fa-bell"></i>
+            <div class = "container-options-menu">
+                <button id = "btn-perguntar">Pergunta</button>
+                <div class="icon-menu">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <span class="badge">3</span>
                 </div>
-                <div class="icon-menu-side-bar">
-                    <i class="fas fa-comments"></i>
+                <div class="icon-menu">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                    <span class="badge">3</span>
                 </div>
-                <div class="container-user-info">
-                    <img src="{{ asset('img/user.png') }}" alt="" id="user-profile-image">
-                    <h7>{{ $nome }}<h7>
+                <div id = "imagem-usuario">
+                    <img src=" {{ asset('img/user.png') }} " alt="" srcset="">
                 </div>
             </div>
         </div>
@@ -54,5 +51,5 @@
         @yield('content')
     </main>
 </body>
-
+<script src="{{ asset('js/home.js') }}"></script>
 </html>
