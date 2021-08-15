@@ -103,3 +103,7 @@
         left: 23%;
     }
 }
+#btn-editar:hover
+{
+    color: #4F4F4F;
+}

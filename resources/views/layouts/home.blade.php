@@ -20,13 +20,14 @@
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/editar-perfil.css') }}" rel="stylesheet">
 
 </head>
 <body>
     <div class = "home-sider-bar">
         <div class = "center-home-sider-bar">
             <div class = "container-search-logo">
-                <img src= "{{ asset('img/question.png') }}">
+                <img src= "{{ route('imagem','question.png') }}">
                 <div id = "container-side-bar">
 
                 </div>
@@ -42,7 +43,9 @@
                     <span class="badge">3</span>
                 </div>
                 <div id = "imagem-usuario">
-                    <img src=" {{ asset('img/user.png') }} " alt="" srcset="">
+                    <a href=" {{ route('show', $id) }} ">
+                        <img src=" {{ route('imagem',$image_profile) }} " alt="Imagem usuário">
+                    </a>
                 </div>
             </div>
         </div>
@@ -52,4 +55,6 @@
     </main>
 </body>
 <script src="{{ asset('js/home.js') }}"></script>
+<script src="{{ asset('js/perfil.js') }}"></script>
+<script src="{{ asset('js/editar-perfil.js') }}"></script>
 </html>

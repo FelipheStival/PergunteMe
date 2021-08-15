@@ -1,0 +1,143 @@
+.container-editar-perfil
+{
+    width: 37%;
+    height: 80%;
+    position: absolute;
+    margin-left: 20%;
+    top: 10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-editar-perfil h1
+{
+    font-size: 3vh;
+}
+.container-editar-perfil-tabs
+{
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    border: 2px solid #88c1fa;
+}
+.btn-editar-pefil
+{
+    width: 30%;
+    height: 100%;
+    border: none;
+    background-color: white;
+    border: none;
+    color: #80bbe3;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vh;
+}
+#btn-editar-pefil
+{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#btn-editar-senha
+{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.btn-editar-pefil:focus
+{
+    background-color: #017aff;
+    color: #b1f7fc;
+}
+
+#tab-editar-perfil form
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#tab-editar-perfil
+{
+    width: 100%;
+    height: 62%;
+    position: absolute;
+    top: 20%;
+}
+input[type=text] 
+{
+    width: 100%;
+    padding: 1.5% 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+#btn-atualizar-perfil
+{
+    width: 25%;
+    height: 10%;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 10%;
+    border: 2px solid #b8dfea;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vh;
+}
+#btn-atualizar-perfil:hover
+{
+    background-color: #b8dfea;
+}
+#tabs-editar-foto
+{
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 20%;
+}
+#tabs-editar-foto form
+{
+    width: 100%;
+    height: 100%;
+}
+#formulario-atualizar-foto 
+{
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+#formulario-atualizar-foto img
+{
+    width: 35%;
+    height: 100%;
+    float: left;
+    border-radius: 100%;
+}
+#formulario-atualizar-foto input
+{
+    float: right;
+}
+#container-btn-upload-imagem
+{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+#container-btn-upload-imagem button
+{
+    width: 100%;
+    height: 20%;
+    border: none;
+    background-color: white;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vh;
+    border: 1px solid #80bbe3;
+    border-radius: 10px;
+}
+#container-btn-upload-imagem button:hover
+{
+    background-color: #80bbe3;
+}

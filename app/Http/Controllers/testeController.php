@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class perfilController extends Controller
+class testeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,12 +45,7 @@ class perfilController extends Controller
      */
     public function show($id)
     {
-        if($id == null){
-            abort(404);
-        }
-
-        $usuario = User::findOrFail($id);
-        return view("perfil/home",$usuario);
+        //
     }
 
     /**
@@ -62,11 +56,7 @@ class perfilController extends Controller
      */
     public function edit($id)
     {
-        if($id == null){
-            abort(404);
-        }
-        $usuario = User::findOrFail($id);
-        return view("perfil/edit",$usuario);
+        //
     }
 
     /**
@@ -77,44 +67,8 @@ class perfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
-        $request->validate([
-            'name' => 'required|unique:users|String'
-        ]);
-
-        $usuario = User::find($id);
-        $usuario->name = $request->input('name');
-        $usuario->save();
-
-        return redirect()
-        ->back()
-        ->with("mensagem","teste");
-    }
-
-     /**
-     * Update image profile
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateImage(Request $request, $id){
-
-        $request->validate([
-            'profile_image' => 'required|mimes:jpeg'
-        ]);
-
-        if($request->hasFile('profile_image')){
-            
-        }
-
-        $usuario = User::find($id);
-        $usuario->profile_image = $request->input('profile_image');
-        $usuario->save();
-
-        return redirect()
-        ->back()
-        ->with("mensagem","teste");
+    {
+        //
     }
 
     /**

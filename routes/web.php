@@ -24,4 +24,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Rotas perfil
 Route::prefix('perfil')->group(function () {
     Route::get('/', [App\Http\Controllers\perfilController::class, 'index']);
+    Route::get('/{id}',[App\Http\Controllers\perfilController::class, 'show'])->name("show");
+    Route::get('/editar/{id}',[App\Http\Controllers\perfilController::class, 'edit'])->name('editar');
+    Route::put('/update/{id}',[App\Http\Controllers\perfilController::class, 'update'])->name('atualizar');
+    Route::put('/update/imagem/{id}',[App\Http\Controllers\perfilController::class, 'update'])->name('atualizar-imagem');
+});
+
+//Rotas imagem
+Route::prefix('imagem')->group(function () {
+    Route::get('/{nomeImagem}', [App\Http\Controllers\imageController::class, 'getImage'])->name('imagem');
 });
