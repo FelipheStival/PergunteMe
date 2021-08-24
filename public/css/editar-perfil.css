@@ -48,21 +48,16 @@
     color: #b1f7fc;
 }
 
-#tab-editar-perfil form
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 #tab-editar-perfil
 {
     width: 100%;
     height: 62%;
     position: absolute;
     top: 20%;
+    display: none;
+
 }
+
 input[type=text] 
 {
     width: 100%;
@@ -71,6 +66,14 @@ input[type=text]
     box-sizing: border-box;
     border: 1px solid gray;
 }
+
+#alerta
+{
+    color: red;
+    position: absolute;
+    font-size: 2vh;
+}
+
 #btn-atualizar-perfil
 {
     width: 25%;
@@ -93,28 +96,23 @@ input[type=text]
     height: 30%;
     position: absolute;
     top: 20%;
+    display: flex;
+    justify-content: space-evenly;
 }
+
 #tabs-editar-foto form
 {
     width: 100%;
     height: 100%;
-}
-#formulario-atualizar-foto 
-{
-    align-items: center;
     display: flex;
     justify-content: space-evenly;
 }
-#formulario-atualizar-foto img
+
+#tabs-editar-foto img
 {
     width: 35%;
     height: 100%;
     float: left;
-    border-radius: 100%;
-}
-#formulario-atualizar-foto input
-{
-    float: right;
 }
 #container-btn-upload-imagem
 {
@@ -140,4 +138,68 @@ input[type=text]
 #container-btn-upload-imagem button:hover
 {
     background-color: #80bbe3;
+}
+
+#btn-editar-pefil:focus #tab-editar-perfil
+{
+    display: block;
+}
+#alerta-erro
+{
+    width: 100%;
+    height: 7%;
+}
+
+@media screen and (max-width: 767px) {
+    .container-editar-perfil
+    {
+        width: 100%;
+        margin-left: 0%;
+        font-size: 2vh;
+    }
+    #formulario-atualizar-foto img
+    {
+        width: 35%;
+        height: 75%;
+        float: left;
+    }
+}
+#alertar-error-sucesso
+{
+    top: 50%;
+    position: absolute;
+}
+#formulario-editar-foto
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#tab-editar-perfil form
+{
+    width: 100%;
+    height: 100%;
+}
+#container-alertar-perfil
+{
+    position: absolute;
+    top: 80%;
+    width: 50%;
+    height: 10%;
+}
+.alertar-mensagem
+{
+    width: 100%;
+    height: 100%;
+    background-color: #dbf8e8;
+    padding: 3%;
+    border: 2px solid #dbf8e8;
+    color: #7ccc9e;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 80%;
+    display: flex;
+    align-items: center;
+    border: 2px solid green;
 }

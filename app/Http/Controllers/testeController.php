@@ -68,7 +68,9 @@ class testeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = [
+            $request->input('nodsdsd')
+        ]
     }
 
     /**

@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class perfilController extends Controller
-{
+{   
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -76,19 +90,24 @@ class perfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {   
         $request->validate([
             'name' => 'required|unique:users|String'
+        ],
+        [
+            'name.required' => 'O campo nome é obrigatório.',
+            'name.unique' => 'Nome de usuário já utilizado',
+            'name.String' => 'Nome de usuário deve ter apenas letras'
         ]);
 
         $usuario = User::find($id);
-        $usuario->name = $request->input('name');
-        $usuario->save();
-
-        return redirect()
-        ->back()
-        ->with("mensagem","teste");
+        $usuario->name = $request->name;
+        if($usuario->save()){
+            return redirect()
+            ->back()
+            ->with(['mensagem' => 'Usuário atualizado com sucesso']);   
+        }
     }
 
      /**
@@ -98,23 +117,23 @@ class perfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateImage(Request $request, $id){
+    public function updateImage(Request $request){
 
-        $request->validate([
-            'profile_image' => 'required|mimes:jpeg'
-        ]);
+        // Fazendo upload imagem
+        $imagem = $request->file('image');
+        $nomeImagem = $imagem->getClientOriginalName();
 
-        if($request->hasFile('profile_image')){
-            
-        }
+        $image_resize = $this->regizeImage($imagem,110,110);
+        $image_resize->save(storage_path('app/public/') .$nomeImagem);
 
+        // Atualizando banco de dados
+        $id = Auth::id();
         $usuario = User::find($id);
-        $usuario->profile_image = $request->input('profile_image');
-        $usuario->save();
+        $usuario->image_profile = $nomeImagem;
 
-        return redirect()
-        ->back()
-        ->with("mensagem","teste");
+        if($usuario->save() && $image_resize->save(storage_path('app/public/') .$nomeImagem)){
+            return response()->json(['mensagem' => "Foto de usuario atualizada com sucesso"]);
+        }
     }
 
     /**
@@ -126,5 +145,14 @@ class perfilController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Método para redimencionar a imagem
+     */
+    private function regizeImage($imagem,$width,$height){
+        $image_resize = Image::make($imagem->getRealPath()); 
+        $image_resize->resize($width,$height);
+        return $image_resize;
     }
 }

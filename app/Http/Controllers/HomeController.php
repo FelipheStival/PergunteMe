@@ -30,10 +30,21 @@ class HomeController extends Controller
 
         $retorno = [
             'nome' => $usuario,
-            'imagem' => $imagem,
+            'image_profile' => $imagem,
             'id' => $id
         ];
 
         return view('home/home',$retorno);
+    }
+
+     /**
+     * Método para sair da aplicaçao.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function sair()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

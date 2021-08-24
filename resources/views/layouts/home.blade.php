@@ -54,6 +54,7 @@
         @yield('content')
     </main>
 </body>
+<script src="{{ asset('js/const.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
 <script src="{{ asset('js/perfil.js') }}"></script>
 <script src="{{ asset('js/editar-perfil.js') }}"></script>

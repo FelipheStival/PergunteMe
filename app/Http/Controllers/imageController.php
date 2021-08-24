@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class imageController extends Controller
 {
@@ -14,12 +15,7 @@ class imageController extends Controller
      */
     public function getImage(String $nomeImagem)
     {
-        if($nomeImagem == null || !is_string($nomeImagem)){
-            return response()->json(['mensagem' => 'Nome da imagem invalido'], 400); 
-        }
-        if(!Storage::disk('public')->exists($nomeImagem)){
-            abort(404);
-        }
-        return Storage::disk('public')->get($nomeImagem);
+        $content = Storage::disk('public')->get($nomeImagem);
+        return response($content);
     }
 }

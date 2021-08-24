@@ -19,15 +19,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Rotas perfil
-Route::prefix('perfil')->group(function () {
-    Route::get('/', [App\Http\Controllers\perfilController::class, 'index']);
-    Route::get('/{id}',[App\Http\Controllers\perfilController::class, 'show'])->name("show");
-    Route::get('/editar/{id}',[App\Http\Controllers\perfilController::class, 'edit'])->name('editar');
-    Route::put('/update/{id}',[App\Http\Controllers\perfilController::class, 'update'])->name('atualizar');
-    Route::put('/update/imagem/{id}',[App\Http\Controllers\perfilController::class, 'update'])->name('atualizar-imagem');
+Route::middleware('auth')->group(function () {
+
+    // rotas home
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/sair', [App\Http\Controllers\HomeController::class, 'sair'])->name('sair');
+
+    // Rotas que precisam de autenticacao
+    Route::prefix('perfil')->group(function () {
+
+        // Rotas perfil
+        Route::get('/', [App\Http\Controllers\perfilController::class, 'index']);
+        Route::get('/{id}',[App\Http\Controllers\perfilController::class, 'show'])->name("show");
+        Route::get('/editar/{id}',[App\Http\Controllers\perfilController::class, 'edit'])->name('editar');
+
+        // Rotas para atualizar informaçoes perfil
+        Route::put('/update/imagem/',[App\Http\Controllers\perfilController::class, 'updateImage'])->name('atualizar-imagem'); 
+        Route::put('/update/nome/{id}', [App\Http\Controllers\perfilController::class, 'update'])->name('update-nome');
+    });
+
 });
 
 //Rotas imagem
