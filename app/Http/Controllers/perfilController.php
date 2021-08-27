@@ -104,9 +104,11 @@ class perfilController extends Controller
         $usuario = User::find($id);
         $usuario->name = $request->name;
         if($usuario->save()){
+
             return redirect()
             ->back()
-            ->with(['mensagem' => 'Usuário atualizado com sucesso']);   
+            ->with(['mensagem' => 'Usuário atualizado com sucesso']);  
+             
         }
     }
 

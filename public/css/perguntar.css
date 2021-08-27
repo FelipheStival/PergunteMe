@@ -1,0 +1,110 @@
+#container-perguntar
+{
+    width: 57%;
+    height: 80%;
+    position: absolute;
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+#formulario-criar-pergunta
+{
+    width: 60%;
+    height: 80%;
+    margin: 0 auto;
+    padding: 4%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.input-criar-perguntar
+{
+    height: 7%;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    max-height: 20%;
+}
+#conteudo-pergunta
+{
+    height: 30%;
+}
+#container-perguntar button
+{
+    height: 10%;
+    width: 30%;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid #ADD8E6;
+    border-radius: 10px;
+    margin-top: 5%;
+    font-size: 2vh;
+    margin-bottom: 5%;
+}
+
+#categoriaPergunta
+{
+    text-align: center;
+}
+
+#container-perguntar button:hover
+{
+    background-color: #ADD8E6;
+}
+
+@media screen and (max-width: 767px) {
+
+    #container-perguntar
+    {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #formulario-criar-pergunta
+    {
+        width: 100%;
+        box-shadow: none;
+    }
+    
+}
+
+.alert-error
+ {
+    padding: 2%;
+    background-color: #f44336;
+    color: white;
+    font-size: 1.8vh;
+    border-radius: 20px;
+  }
+  
+  .closebtn 
+  {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover 
+  {
+    color: black;
+  }
+
+.alert-sucesso
+{
+  padding: 2%;
+  background-color: #0fcc5e;
+  color: white;
+  font-size: 1.8vh;
+  border-radius: 20px;
+}
+#container-perguntar textarea
+{
+    resize: none;
+}

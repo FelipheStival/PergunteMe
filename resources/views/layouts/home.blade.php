@@ -21,6 +21,7 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
     <link href="{{ asset('css/editar-perfil.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/perguntar.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -33,7 +34,7 @@
                 </div>
             </div>
             <div class = "container-options-menu">
-                <button id = "btn-perguntar">Pergunta</button>
+                <button id = "btn-perguntar"><a href="{{ route('perguntar') }}">Perguntar</a></button>
                 <div class="icon-menu">
                     <i class="fa fa-bell" aria-hidden="true"></i>
                     <span class="badge">3</span>

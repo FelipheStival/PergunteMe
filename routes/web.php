@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/sair', [App\Http\Controllers\HomeController::class, 'sair'])->name('sair');
 
-    // Rotas que precisam de autenticacao
+    // Rotas perfil
     Route::prefix('perfil')->group(function () {
 
         // Rotas perfil
@@ -38,7 +38,12 @@ Route::middleware('auth')->group(function () {
         // Rotas para atualizar informaçoes perfil
         Route::put('/update/imagem/',[App\Http\Controllers\perfilController::class, 'updateImage'])->name('atualizar-imagem'); 
         Route::put('/update/nome/{id}', [App\Http\Controllers\perfilController::class, 'update'])->name('update-nome');
+
     });
+
+    // Rotas perguntas
+     Route::get('/perguntar', [App\Http\Controllers\PerguntaController::class, 'index'])->name('perguntar');
+     Route::post('/perguntar', [App\Http\Controllers\PerguntaController::class, 'store'])->name('perguntar');
 
 });
 
