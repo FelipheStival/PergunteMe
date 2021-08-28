@@ -19,10 +19,10 @@
             <button id="btn-tabs-left">Perguntas</button>
             <button id="btn-tabs-right">Respostas</button>
         </div>
-        <div class="container-tabs-content">
-
+        <div id ="container-respostas-perfil">
+            
         </div>
-        <div id="container-respostas-perguntas">
+        <div id ="container-perguntas-perfil">
 
         </div>
     </div>

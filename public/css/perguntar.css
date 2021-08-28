@@ -74,6 +74,7 @@
 .alert-error
  {
     padding: 2%;
+    width: 100%;
     background-color: #f44336;
     color: white;
     font-size: 1.8vh;
@@ -99,6 +100,7 @@
 .alert-sucesso
 {
   padding: 2%;
+  width: 100%;
   background-color: #0fcc5e;
   color: white;
   font-size: 1.8vh;

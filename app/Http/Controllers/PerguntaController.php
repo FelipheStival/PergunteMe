@@ -75,15 +75,42 @@ class PerguntaController extends Controller
         
     }
 
+
     /**
-     * Display the specified resource.
+     * Listar todas as perguntas
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show($categoria)
+    {
+        if($categoria != '' && $categoria != null){
+            // Obtendo id da categoria
+            $categoria_id = categorias::where('nome', $categoria)
+                            ->first()
+                            ->id;
+            // Obtendo perguntas
+            $perguntas = perguntas::with('User','categorias')
+                        ->where('categoria_id', $categoria_id)
+                        ->paginate(10);
+                        
+            return response()->json([ "perguntas" => $perguntas ],200);
+        }
+        return response()->json([ "mensagem" => 'Categoria inválida' ],200);
+    }
+
+
+    /**
+     * lista perguntar por usuário.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showByUser()
     {
-        //
+        $id = Auth::id();
+        $perguntas = perguntas::with('User')->where('usuario_id',$id)->get();
+        return response()->json([ "perguntas" => $perguntas ],200);
     }
 
     /**

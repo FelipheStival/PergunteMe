@@ -76,9 +76,14 @@ class perfilController extends Controller
      */
     public function edit($id)
     {
-        if($id == null){
+        if($id == null ){
             abort(404);
         }
+
+        if($id != Auth::id()){
+            return redirect()->route('editar',Auth::id());
+        }
+
         $usuario = User::findOrFail($id);
         return view("perfil/edit",$usuario);
     }

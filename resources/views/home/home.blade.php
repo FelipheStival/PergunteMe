@@ -23,6 +23,18 @@
         </div>
     </div>
     <div id = "container-perguntas-home">
+        <div class="container-selecionar-pergunta" id="container-editar-perfil-tabs">
+            <button class="btn-selecionar-categoria-pergunta active" id="btn-selecionar-paquera">paquera</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-encontros">encontros</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-relacionamentos">relacionamento</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-sexualidade">sexualidade</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-comportamento">comportamento</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-estilo">estilo</button>
+            <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-outros">outros</button>
+        </div>
+        <div id = "container-lista-perguntas">
+            
+        </div>
         
     </div>
     

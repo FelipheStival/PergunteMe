@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categorias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,11 +28,13 @@ class HomeController extends Controller
         $usuario = Auth::user()->name;
         $imagem = Auth::user()->image_profile;
         $id = Auth::user()->id;
+        $categorias = categorias::all();
 
         $retorno = [
             'nome' => $usuario,
             'image_profile' => $imagem,
-            'id' => $id
+            'id' => $id,
+            'categorias' => $categorias
         ];
 
         return view('home/home',$retorno);

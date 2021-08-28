@@ -44,9 +44,7 @@
                     <span class="badge">3</span>
                 </div>
                 <div id = "imagem-usuario">
-                    <a href=" {{ route('show', $id) }} ">
-                        <img src=" {{ route('imagem',$image_profile) }} " alt="Imagem usuário">
-                    </a>
+                    <a href="{{ route('show',$id) }}"><img src=" {{ route('imagem',$image_profile) }} " alt="Imagem usuário"></a>
                 </div>
             </div>
         </div>

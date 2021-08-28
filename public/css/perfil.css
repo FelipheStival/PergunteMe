@@ -78,20 +78,12 @@
     background-color: #017aff;
     color: #b1f7fc;
 }
-#btn-tabs-left:focus
+
+#btn-tabs-left:focus 
 {
     background-color: #017aff;
     color: #b1f7fc;
 }
-#container-respostas-perguntas
-{
-
-    width: 100%;
-    height: 90%;
-    top: 46%;
-    position: absolute;
-}
-
 @media screen and (max-width: 767px) {
     .container-perfil
     {
@@ -107,4 +99,13 @@
 #btn-editar:hover
 {
     color: #4F4F4F;
+}
+
+#container-respostas-perfil
+{
+    top: 50%;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    background-color: red;
 }
