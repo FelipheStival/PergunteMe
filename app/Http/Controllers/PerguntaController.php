@@ -16,6 +16,18 @@ class PerguntaController extends Controller
      */
     public function index()
     {
+        $perguntas = perguntas::with('User','categorias')
+                     ->paginate(5);
+        return response()->json([ "perguntas" => $perguntas ],200);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         $usuario = Auth::user()->name;
         $imagem = Auth::user()->image_profile;
         $id = Auth::user()->id;
@@ -28,16 +40,6 @@ class PerguntaController extends Controller
             'categorias' => $categorias
         ];
         return view('perguntas.index',$retorno);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -69,10 +71,12 @@ class PerguntaController extends Controller
         $pergunta->usuario_id = Auth::id();
 
         if($pergunta->save()){
+            if($request->expectsJson()){
+                return response()->json(['mensagem' => 'Pergunta cadastrada com sucesso', 200]);
+            }
             return back()
-            ->with(['mensagem' => 'Pergunta cadastrada com sucesso']);   
+                   ->with(['mensagem' => 'Pergunta cadastrada com sucesso']);  
         }
-        
     }
 
 
@@ -82,9 +86,24 @@ class PerguntaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show($categoria)
+    public function show()
+    {   
+        $perguntas = perguntas::with('User','categorias')
+                     ->paginate(5);
+        return response()->json([ "perguntas" => $perguntas ],200);
+    }
+
+    
+    /**
+     * Listar todas as perguntas por categoria
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showByCategoria($categoria)
     {
         if($categoria != '' && $categoria != null){
+
             // Obtendo id da categoria
             $categoria_id = categorias::where('nome', $categoria)
                             ->first()
@@ -92,7 +111,7 @@ class PerguntaController extends Controller
             // Obtendo perguntas
             $perguntas = perguntas::with('User','categorias')
                         ->where('categoria_id', $categoria_id)
-                        ->paginate(10);
+                        ->paginate(5);
                         
             return response()->json([ "perguntas" => $perguntas ],200);
         }
@@ -144,6 +163,6 @@ class PerguntaController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

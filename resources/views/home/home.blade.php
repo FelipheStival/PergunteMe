@@ -5,7 +5,9 @@
 <div class = "container-home">
     <div id = "menu-perfil-home">
         <div id = "container-photo-menu-perfil">
-            <img src=" {{ route('imagem', $image_profile) }} " alt="Imagem usuário">
+            <figure>
+                <img src=" {{ route('imagem', $image_profile) }} " alt="Imagem usuário">
+            </figure>
         </div>
         <div id = "container-menu-item-perfil-home">
             <div class = "menu-item-perfil-home">
@@ -33,9 +35,8 @@
             <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-outros">outros</button>
         </div>
         <div id = "container-lista-perguntas">
-            
+            <div id="spinner"></div>
         </div>
-        
     </div>
     
 </div>

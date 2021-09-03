@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pergunta extends Migration
+class Resposta extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class Pergunta extends Migration
      */
     public function up()
     {
-        Schema::create('perguntas', function (Blueprint $table) {
+        Schema::create('resposta', function (Blueprint $table) {
             $table->id();
             $table->longText('titulo');
             $table->longText('conteudo');
-            $table->unsignedBigInteger('categoria_id');
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('pergunta_id');
 
             // Criando chaves estrangeiras
-            $table->foreign('categoria_id')->references('id')->on('categorias');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('pergunta_id')->references('id')->on('perguntas');
         });
     }
 
@@ -33,6 +31,6 @@ class Pergunta extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perguntas');
+        Schema::dropIfExists('resposta');
     }
 }

@@ -1,12 +1,17 @@
 
 
 
+/**
+ *  Modulo para listar as perguntas
+ * 
+ */
 (function() {
 
     var listaPerguntas = document.getElementById('container-lista-perguntas');
     var botoesMenu = document.getElementsByClassName('btn-selecionar-categoria-pergunta');
     var paginaAtual = 1;
     var tabSelecionada = 'paquera';
+    var spiner = document.getElementById('spinner');
 
     /**
      *  Metodo para alterar tab selecinada
@@ -35,11 +40,8 @@
         }
     }
 
-
-
     /**
      * Metodo para obter as perguntas
-     * @returns 
      */
     async function obterPerguntas(categoria,pagina){
         const res = await fetch(
@@ -55,12 +57,13 @@
     async function listarPergunta(categoria,pagina,contatenar){
         let data = await obterPerguntas(categoria, pagina);
         let perguntas = data['perguntas']['data'];
-        let itemPergunta = document.createElement('div');
-        
-        // Criando componente pergunta
+        let containerPerguntas = document.createElement('div');
+
         perguntas.forEach(pergunta => {
-            itemPergunta.innerHTML +=
-            `<div class = "container-pergunta-home">
+            // Criando elemento
+            let elemento = document.createElement('div');
+            elemento.innerHTML = 
+            `<div class = "container-pergunta-home" id = "container-pergunta-home">
                 <div class = "container-pergunta-header">
                     <img src="${ URL_BASE + 'imagem/' + pergunta.user.image_profile }" alt="Imagem usuário"></img>
                     <h7>${ pergunta.user.name }</h7>
@@ -68,17 +71,28 @@
                     <h7>0 Respostas</h7>
                 </div> 
                <div class = "container-pergunta-body"> 
-                    <h1>${ pergunta.titulo }</h1> 
-                    <h7>${ pergunta.conteudo }</h7>
+                    <div class = "container-pergunta-body">
+                        <h1>${ pergunta.titulo.substr(0,44) + '...' }</h1> 
+                        <h7>${ pergunta.conteudo.substr(0,350) + '...' }</h7>
+                        <a id = "btn-responder" href="https://www.w3schools.com">Visit W3Schools</a>
+                    </div>
                 </div>
-            </div>`
+            </div>`;
+
+            // Evento de click
+            elemento.onclick = (e) => {
+                elemento.querySelector('a').click();
+            };
+            // Adicionando elemento a lista
+            containerPerguntas.insertAdjacentElement('beforeend', elemento);
         });
 
-        // Substituindo item pergutna
         if(contatenar){
-            listaPerguntas.innerHTML += itemPergunta.innerHTML;
+            listaPerguntas.insertAdjacentElement('beforeend', containerPerguntas);
         } else {
-            listaPerguntas.innerHTML = itemPergunta.innerHTML;
+            listaPerguntas.innerHTML = '';
+            listaPerguntas.classList.add('container-lista-perguntas');
+            listaPerguntas.insertAdjacentElement('beforeend', containerPerguntas);
         }
     }
 
@@ -108,6 +122,7 @@
     window.addEventListener('load', () => {
         listarPergunta(tabSelecionada, paginaAtual);
     });
+
 
 }());
 

@@ -37,11 +37,9 @@
                 <button id = "btn-perguntar"><a href="{{ route('perguntar') }}">Perguntar</a></button>
                 <div class="icon-menu">
                     <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="badge">3</span>
                 </div>
                 <div class="icon-menu">
                     <i class="fa fa-comments" aria-hidden="true"></i>
-                    <span class="badge">3</span>
                 </div>
                 <div id = "imagem-usuario">
                     <a href="{{ route('show',$id) }}"><img src=" {{ route('imagem',$image_profile) }} " alt="Imagem usuário"></a>
