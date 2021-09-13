@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class = "container-options-menu">
-                <button id = "btn-perguntar"><a href="{{ route('perguntar') }}">Perguntar</a></button>
+                <button id = "btn-perguntar"><a href="{{ route('perguntas.create') }}">Perguntar</a></button>
                 <div class="icon-menu">
                     <i class="fa fa-bell" aria-hidden="true"></i>
                 </div>

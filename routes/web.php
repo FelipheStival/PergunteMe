@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PerguntaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,10 +43,9 @@ Route::middleware('auth')->group(function () {
     });
 
     // Rotas perguntas
-     Route::get('/perguntar', [App\Http\Controllers\PerguntaController::class, 'create'])->name('perguntar');
-     Route::post('/perguntar', [App\Http\Controllers\PerguntaController::class, 'store'])->name('perguntar');
-     Route::get('/perguntasUser', [App\Http\Controllers\PerguntaController::class, 'showByUser'])->name('perguntasUser');
-     Route::get('/perguntas/{categoria}', [App\Http\Controllers\PerguntaController::class, 'showByCategoria'])->name('todasPerguntas');
+     Route::resources([
+         'perguntas' => PerguntaController::class
+     ]);
 
 });
 

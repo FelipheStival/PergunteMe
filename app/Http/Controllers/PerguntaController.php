@@ -86,22 +86,8 @@ class PerguntaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show()
-    {   
-        $perguntas = perguntas::with('User','categorias')
-                     ->paginate(5);
-        return response()->json([ "perguntas" => $perguntas ],200);
-    }
-
-    
-    /**
-     * Listar todas as perguntas por categoria
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function showByCategoria($categoria)
-    {
+    {   
         if($categoria != '' && $categoria != null){
 
             // Obtendo id da categoria
@@ -118,6 +104,15 @@ class PerguntaController extends Controller
         return response()->json([ "mensagem" => 'Categoria inválida' ],200);
     }
 
+    /**
+     * Obter pergunta pelo id
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id){
+        
+    }
 
     /**
      * lista perguntar por usuário.
@@ -140,7 +135,20 @@ class PerguntaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = Auth::user()->name;
+        $imagem = Auth::user()->image_profile;
+        $id = Auth::user()->id;
+        $pergunta = perguntas::where('id',$id)->first();
+
+        $retorno = [
+            'nome' => $usuario,
+            'image_profile' => $imagem,
+            'id' => $id,
+            'pergunta' => $pergunta
+        ];
+
+        return view('perguntas/edit', $retorno);
+
     }
 
     /**
@@ -163,6 +171,9 @@ class PerguntaController extends Controller
      */
     public function destroy($id)
     {
-
+        $pergunta = perguntas::where('id',$id);
+        if($pergunta->delete()){
+            return response()->json(["mensagem" => "Pergunta apagada com sucesso"]);
+        }
     }
 }

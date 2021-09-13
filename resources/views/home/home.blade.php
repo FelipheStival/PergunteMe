@@ -35,7 +35,7 @@
             <button class="btn-selecionar-categoria-pergunta" id="btn-selecionar-outros">outros</button>
         </div>
         <div id = "container-lista-perguntas">
-            <div id="spinner"></div>
+            
         </div>
     </div>
     

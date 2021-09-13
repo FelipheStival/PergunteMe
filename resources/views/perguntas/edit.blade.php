@@ -3,7 +3,7 @@
 @section('content')
 
 <div id = "container-perguntar">
-    <form id  = "formulario-criar-pergunta" method="POST" action="{{ route('perguntas.store') }}">
+    <form id  = "formulario-criar-pergunta" method="POST" action="{{ route('perguntar') }}">
         @csrf
         <label for="nome-pergunta"><strong>Nome da pergunta: </strong></label>
         <input type="text" id="nome-pergunta" name="nomePergunta" class = "input-criar-perguntar">
